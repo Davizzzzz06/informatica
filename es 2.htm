@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatore e Tabelline</title>
+</head>
+<body>
+
+<div id="counter"></div>
+
+<script>
+  var counter = 1;
+
+  function updateCounter() {
+    document.getElementById('counter').innerHTML = 'Contatore: ' + counter;
+
+    if (counter === 5) {
+      printMultiplicationTables();
+      clearInterval(intervalId);
+    } else {
+      counter++;
+    }
+  }
+
+  function printMultiplicationTables() {
+    var tableContent = '<h2>Tabelline dal 1 al 10:</h2>';
+    for (var i = 1; i <= 10; i++) {
+      tableContent += '<p>';
+      for (var j = 1; j <= 10; j++) {
+        tableContent += i + ' x ' + j + ' = ' + (i * j) + '<br>';
+      }
+      tableContent += '</p>';
+    }
+    document.getElementById('counter').innerHTML = tableContent;
+  }
+
+  var intervalId = setInterval(updateCounter, 1000);
+</script>
+
+</body>
+</html>
